@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+
+  <section> 
+				<br> </br>
+				<h1> "How to use..." </h1>
+	
+                <p>Practical Tips for Managing and Analyzing Your Data</p><br>
+                <p>Sadegh Ghasemi</p>
+                <br>
+                <p></p>
+                <small>Aarhus University</small><br>
+                
+</section>
+  
+<section>
+				<section>
+					<br> </br>
+                <h1>Using ERDA</h1>
+                <p>Opening an ERDA account and managing file transfer</p><br>
+                <p><a href="erda.au.dk">erda.au.dk</a></p>
+                <br>
+                <p></p>
+                <small>Noh Lab Meeting</small><br>
+                <small>16/12/2025</small>
+		
+            	</section>
+				
+
+
+<section>
+  <h2>ERDA</h2>
+  <p>
+    ERDA (Electronic Research Data Archive) is AU’s digital solution for storing
+    and sharing open research data.
+  </p>
+  <ul>
+    <li>Do <strong>not</strong> use ERDA if it contains:
+      <ul>
+        <li>Personal data</li>
+        <li>IP-data</li>
+        <li>Strategically important research data</li>
+      </ul>
+    </li>
+    <li>Use SIF instead</li>
+    <li>Login using Aarhus University email and password</li>
+  </ul>
+</section>
+
+<section>
+  <!-- Image-only slide -->
+  <div id="slide-3-image"></div>
+  <script>
+    document.getElementById("slide-3-image").innerHTML =
+      '<img src="images/s3.png" alt="Slide 3 image">';
+  </script>
+</section>
+
+<section>
+	<br>
+  <ul>
+    <li>Snapshots are taken on ERDA’s primary site every 15 minutes. These are saved for 8 days.</li> 
+  <li>
+    ERDA is copied to a secondary site (&gt;14 km distant from the primary site)
+    every 24 hours.
+  </li>
+  <li>
+    Snapshots are taken on the secondary site once a day.
+    These are saved for 30 days.
+  </li>
+  <li>You can secure with 2FA.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Uploading and Downloading Files</h3>
+
+  <div id="slide-5-image"></div>
+  <script>
+    document.getElementById("slide-5-image").innerHTML =
+      '<img src="images/s5.png" >';
+  </script>
+</section>
+
+<section>
+	<div style="display:flex; align-items:center;">
+    <div style="width:50%;">
+  <h2>Sharing Files and Folders</h2>
+  <ul>
+    <li>Read or Write access</li>
+    <li>You can always delete share links later</li>
+  </ul>
+  </div>
+    <div style="width:50%; text-align:center;">
+      <img src="images/s6.png" style="max-width:100%;">
+    </div>
+  </div>
+</section>
+<section>
+	
+	<p>Output as:</p>
+      <ul>
+        <li>Link + QR code + Email</li>
+      </ul>
+    </li>
+  
+  </ul>
+  <p>
+    Example:<br>
+    <a href=https://anon.erda.au.dk/share_redirect/Fb9L9wFG2U>https://anon.erda.au.dk/share_redirect/Fb9L9wFG2U</a>
+  </p>
+  <img src="images/s7.png" alt="Slide 7 image" style="max-width:90%;">
+</section>
+
+<section>
+  <h2>Adding Workgroups</h2>
+
+  <img src="images/s3.png" alt="Slide 3 image" style="max-width:80%;">
+</section>
+<section> <p>Making workgroups </p>
+<img src="images/s9.png" alt="Slide 9 image" style="max-width:60%;">
+</section>
+	
+<section>
+  <h3>Adding Users to the Workgroup</h3>
+
+  <img src="images/s10.png" alt="Slide 10 image" style="max-width:60%;">
+</section>
+
+<section>
+  <h2>Adding ERDA as a Windows / macOS Folder</h2>
+  <p>In case you got tired of using this terrible website:</p>
+  <br>
+  <ul>
+    <li><strong>SFTP</strong>: Faster but limited on AU laptops</li>
+    <li><strong>WebDAV</strong>: Slow like the website, but opens in File Explorer</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Setting Up Password for SFTP & WebDAV</h2>
+  <p>
+    <a href=https://int.erda.au.dk/wsgi-bin/setup.py>https://int.erda.au.dk/wsgi-bin/setup.py</a>
+  </p>
+  <p>
+    Set a password that you will remember<br>
+    (preferably not your AU password)
+  </p>
+</section>
+
+<section>
+  <h2>Install SSHFS-win</h2>
+  <ol>
+    <li>Request Admin Privilege in Heimdal Agent</li>
+    <li>Open PowerShell and type:</li>
+  </ol>
+  <pre><code>
+winget install SSHFS-Win.SSHFS-Win
+  </code></pre>
+</section>
+
+<section>
+  <p>
+    Open Windows File Manager.<br>
+    Right click on “This PC” and select <strong>Map network drive</strong>.
+  </p>
+
+  <img src="images/s14.png" alt="Slide 14 image" style="max-width:60%;">
+</section>
+
+<section>
+  <p>Enter the following in the Folder field:</p>
+  <pre><code>
+\\sshfs\YOUREMAIL@biomed.au.dk@io.erda.au.dk!2222
+  </code></pre>
+  <p>Enter your password if required.</p>
+
+  <img src="images/s15.png" alt="Slide 15 image" style="max-width:60%;">
+</section>
+
+<section>
+  <p>for<strong> WebDAV</strong>:</p>
+  <p> In Windows open <strong>Map Network Drive</strong> and in the folder section enter:</p>
+   
+  <pre><code>
+https://io.erda.au.dk:4443
+  </code></pre>
+  <p>
+    Username: Biomed Email<br>
+    Password: ERDA password
+  </p>
+
+  <p>On MacOS search for <strong>Connect to Server</strong>. Then in the Server address field enter:</p>
+  <pre><code>
+https://io.erda.au.dk:4443
+  </code></pre>
+</section>
+
+<section>
+  <h2>Large Transfers</h2>
+  <p>
+    For major file transfers and faster access use <strong>WinSCP</strong> or <strong>Cyberduck</strong>.
+  </p>
+
+  <img src="images/s17.png" alt="Slide 17 image" style="max-width:80%;">
+</section>
+</section>	
+				<section>
+					<section><br>
+				<h1>Using UCloud</h1>
+				</section>
+				<section><br>
+				<p>I am working on it!</p>
+				<img src="images/s32.jpg" alt="Slide 32 image" style="max-width:80%;">
+				</section>
+						
+				</section>
+
+				<section>
+					<section><br>
+				<h1>Using GenomeDK</h1>
+				</section>
+				<section><br>
+				<p>I am working on it!</p>
+				<img src="images/homer.gif" alt="Slide 32 image" style="max-width:100%;">
+				</section>
+						
+				</section>
+
+				
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				center: false,
+				slideNumber: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
